@@ -19,12 +19,12 @@ def crearPredio():
 
 @app.route('/listarPredios', methods=['GET'])
 def listarPredios():
-    predios_list= requests.get('https://api-evergreen-728.azurewebsites.net//Predios').json()
+    predios_list= requests.get('https://api-evergreen-728.azurewebsites.net/Predios').json()
     return render_template('listarPredios.html', predios=predios_list) 
 
 @app.route('/guardarPredio',methods=['POST'])
 def guardarPredio():
     predio = dict(request.values)
     predio['area'] = int(predio['area'])
-    requests.post('http://localhost:5000/Predios',json=predio)
+    requests.post('https://api-evergreen-728.azurewebsites.net/Predios',json=predio)
     return (listarPredios())
