@@ -28,5 +28,3 @@ def guardarPredio():
     predio['area'] = int(predio['area'])
     requests.post('http://localhost:5000/Predios',json=predio)
     return (listarPredios())
-
-app.run(port=8000,debug=True)
